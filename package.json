@@ -1,0 +1,41 @@
+{
+  "name": "@andreas-timm/config-ts",
+  "version": "0.1.0",
+  "description": "Typed config with native typescript on bun.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andreas-timm/config-ts.git"
+  },
+  "keywords": [
+    "config",
+    "typescript",
+    "bun",
+    "typed",
+    "cache",
+    "yaml"
+  ],
+  "author": "Andreas Timm <info@andreas-timm.dev>",
+  "license": "CC-BY-4.0",
+  "bugs": {
+    "url": "https://github.com/andreas-timm/config-ts/issues"
+  },
+  "homepage": "https://github.com/andreas-timm/config-ts#readme",
+  "module": "src/index.ts",
+  "type": "module",
+  "scripts": {
+    "build" : "./build.sh"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/js-yaml": "^4.0.9"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "ajv": "^8.17.1",
+    "deepmerge": "^4.3.1",
+    "js-yaml": "^4.1.0",
+    "ts-json-schema-generator": "^2.3.0"
+  }
+}

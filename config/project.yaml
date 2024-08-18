@@ -1,0 +1,6 @@
+config:
+  added:
+    - config/project_data.yaml
+  default_interface:
+    path: src/test_types.ts
+    name: ConfigProject
