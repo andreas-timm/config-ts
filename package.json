@@ -1,0 +1,73 @@
+{
+    "name": "@andreas-timm/config",
+    "version": "0.1.1",
+    "description": "Bun-first TOML config loading with Zod validation",
+    "license": "BSD-2-Clause",
+    "author": {
+        "name": "Andreas Timm",
+        "email": "info@andreas-timm.dev"
+    },
+    "homepage": "https://github.com/andreas-timm/config-ts#readme",
+    "bugs": {
+        "url": "https://github.com/andreas-timm/config-ts/issues"
+    },
+    "keywords": [
+        "bun",
+        "config",
+        "toml",
+        "typescript",
+        "zod"
+    ],
+    "type": "module",
+    "files": [
+        "dist",
+        "src",
+        "skills",
+        "LICENSE",
+        "README.md"
+    ],
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.js",
+            "default": "./dist/index.js"
+        }
+    },
+    "types": "./dist/index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/andreas-timm/config-ts.git"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "scripts": {
+        "build": "rm -rf dist && bun build src/index.ts --target bun --format esm --packages external --outfile dist/index.js && tsc -p tsconfig.build.json",
+        "lint": "set -x; status=0; biome lint || status=$?; biome check || status=$?; eslint scripts src test || status=$?; tsc --noEmit -p tsconfig.json || status=$?; exit $status",
+        "pack": "bun pm pack --ignore-scripts --destination packs",
+        "prepack": "bun run build",
+        "prepublishOnly": "bun lint && bun test && bun audit --audit-level=moderate",
+        "postpack": "bun scripts/postpack.ts",
+        "release:publish": "bun scripts/publish.ts"
+    },
+    "dependencies": {
+        "lodash.merge": "^4.6.2",
+        "rxjs": "^7.8.2"
+    },
+    "peerDependencies": {
+        "zod": "^4.0.0"
+    },
+    "devDependencies": {
+        "@biomejs/biome": "^2.4.13",
+        "@eslint/js": "^10.0.1",
+        "@types/bun": "^1.3.13",
+        "@types/lodash.merge": "^4.6.9",
+        "@types/node": "^25.6.0",
+        "@typescript-eslint/eslint-plugin": "^8.59.0",
+        "@typescript-eslint/parser": "^8.59.0",
+        "globals": "^17.5.0",
+        "prettier-plugin-organize-imports": "^4.3.0",
+        "typescript": "^5.9.3",
+        "zod": "^4.3.6"
+    }
+}
