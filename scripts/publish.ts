@@ -20,7 +20,7 @@ if (process.env.npm_config_otp) {
     publishArgs.push("--otp", process.env.npm_config_otp);
 }
 
-const pack = spawnSync("npm", ["run", "pack"], { cwd: root, stdio: "inherit" });
+const pack = spawnSync("bun", ["run", "pack"], { cwd: root, stdio: "inherit" });
 if (pack.status !== 0) {
     process.exit(pack.status ?? 1);
 }
